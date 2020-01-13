@@ -1,6 +1,7 @@
 <?php
 $host='localhost';
 $db = 'adise19_uno_game_db';
+require_once "config_local.php";
 
 $user=$DB_USER;
 $pass=$DB_PASS;
