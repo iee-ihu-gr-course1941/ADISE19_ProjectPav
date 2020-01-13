@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Uno Card Game</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="css/uno.css" rel="stylesheet">
+    <script src="js/uno.js"></script>
+</head>
+<body>
+    <div id=container>
+        <div id=player1-container>
+        </div>
+        <div id=tableCard-container>          
+        </div>
+        <div id=deck-container>
+                <div id='deckcard' class='image' >Draw</div>
+        </div>
+        <div id=player2-container>
+        </div>
+        <div id=textid></div>
+        <div id='game_initializer'>
+            <input type="text" id='username' placeholder="Your name.."> 
+            <select id='pname'>
+            <option value='p1'>p1</option>
+            <option value='p2'>p2</option>
+            </select>
+            <button id='uno_login'>Login Game</button>
+        </div>
+            
+        <div id='game_info' class="alert alert-success">
+        </div>
+        <div id='game_info2' class="alert alert-danger">
+        </div>
+        <div id="rule_title"><p id="p1tag">Rules</p></div>
+        <div id='rules_div' class="alert alert-info"><h3><center>Card Effects :</center></h3><br>
+                                                    <strong>Skip Card <font color="red">(S)</font> : </strong>Enemy player misses a turn.<br><br>
+                                                     <strong>Reverse Card <font color="red">(R)</font> : </strong>Order of play switches directions.<br><br>
+                                                     <strong>Draw Two <font color="red">(+2)</font> : </strong>Enemy player draws two cards and misses a turn.<br><br>
+                                                     <strong>Wild Card <font color="black">(W)</font>  : </strong>Player declares the next color to be matched and enemy misses a turn.<br><br>
+                                                     <strong>Wild Draw Four <font color="black">(+4W)</font> : </strong>Player declares the next color to be matched, enemy player draws four cards and misses a turn.<br><br>
+                                                     <strong>Player 1 plays first.</strong><br><br>
+                                                     <strong>If first table card is <font color="black">Wild Card</font> then Player 1 decides the color before Player 2 takes cards.</strong><br><br>
+                                                     <strong>If first table card is <font color="red">Draw Two</font> then Player 2 draws two cards and starts with 9 cards total.</strong><br><br><br>
+                                                     <strong>Login two players to start the game :</strong>
+        </div>
+        <div id="game_title"><p id="p2tag">Game Informations</p></div>
+        <div id="game-informations" class="alert alert-warning"><h4><center>Unique UNO Card Game :</center></h4><br>
+                                                                <strong>I'm sure that everybody has heard of this famous card game UNO.</strong><br><br>
+                                                                <strong>This is a special edition of the classic UNO card game.</strong><br><br>
+                                                                <strong>The game is played in one browser.</strong><br><br>
+                                                                <strong>Players cards are open to both players.</strong><br><br>
+                                                                <strong>This is more challenging and requires<br> better strategy.</strong><br><br>
+                                                                <strong>Good luck to all players and one extra rule :</strong><br><br>
+                                                                <strong>The winner can freely call the loser "noob"! &#128540;</strong>
+        </div>
+        <button id='pass_btn'>PASS </button>
+        <button id='game_reset' class='btn btn-primary'>NEW GAME</button>     
+
+    </div> 
+
+    
+</body>
+</html>
