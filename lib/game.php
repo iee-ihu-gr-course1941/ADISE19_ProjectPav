@@ -130,6 +130,9 @@ function update_move($b,$c,$d){
 	$res = $st->get_result();
 	$r = $res->fetch_all(MYSQLI_ASSOC);
 	$card_id = $r[0]['card_id'];
+	
+	header('Content-type: application/json');
+	print json_encode($card_id, JSON_PRETTY_PRINT);
 
 	$sql2 = 'UPDATE play_card SET card_id=?, card_text=? where play_card_id=1';
 	$st2 = $mysqli->prepare($sql2);
@@ -138,7 +141,7 @@ function update_move($b,$c,$d){
 	
 	sleep(0.2);
 
-	$sql3 = 'delete from hand where card_id=? desc limit 1';
+	$sql3 = 'delete from hand where card_id=?';
 	$st3 = $mysqli->prepare($sql3);
 	$st3->bind_param('i',$card_id);
 	$st3->execute();
