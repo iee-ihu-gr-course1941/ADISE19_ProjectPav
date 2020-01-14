@@ -48,7 +48,7 @@ ___
 ___
 Το deck είναι ένας πίνακας, ο οποίος στο κάθε στοιχείο έχει τα παρακάτω:
 
-| card_id       | card_color    | card_text  |
+| Attribute     | Description   | Values|
 | ------------- |:-------------:| -----:|
 | col 3 is      | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
