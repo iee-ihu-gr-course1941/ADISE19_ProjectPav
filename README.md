@@ -124,7 +124,7 @@ O remaining_deck_reset πίνακας κάνει replace τα στοιχεία �
 | card_color    | Το χρώμα της κάρτας      |  R,G,Y,B,W |
 | card_text     | Το νούμερο/αρηθμός της κάρτας | 1,5,6,R,S,W,etc |
 
-***
+___
 
 
 
