@@ -123,7 +123,7 @@ function update_move($b,$c,$d){
 	
 	$status = read_status();
 
-	$sql = 'select card_id from hand where card_id = (select h.card_id from hand h inner join deck_reset d on h.card_id = d.card_id where d.card_color=? and d.card_text = ? and h.player_name = ? order by d.card_text desc limit 1)';
+	$sql = 'select card_id from hand where card_id IN (select h.card_id from hand h inner join deck_reset d on h.card_id = d.card_id where d.card_color=? and d.card_text = ? and h.player_name = ? order by d.card_text desc limit 1)';
 	$st = $mysqli->prepare($sql);
 	$st->bind_param('sss',$b,$c,$d);
 	$st->execute();
@@ -136,7 +136,7 @@ function update_move($b,$c,$d){
     $st2->bind_param('is',$card_id,$c);
 	$st2->execute();
 
-	$sql3 = 'delete from hand where card_id = (select h.card_id from hand h inner join deck_reset d on h.card_id = d.card_id where d.card_color=? and d.card_text = ? and h.player_name = ? order by d.card_text desc limit 1)';
+	$sql3 = 'delete from hand where card_id IN (select h.card_id from hand h inner join deck_reset d on h.card_id = d.card_id where d.card_color=? and d.card_text = ? and h.player_name = ? order by d.card_text desc limit 1)';
 	//$sql = 'delete from hand where card_id = (select h.card_id from hand h inner join deck d on h.card_id = d.card_id where d.card_color=? and d.card_text = ? and h.player_name = ? group by d.card_text)';
 	$st3 = $mysqli->prepare($sql3);
 	$st3->bind_param('sss',$b,$c,$d);
