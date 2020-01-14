@@ -28,7 +28,7 @@ switch ($r=array_shift($request)) {
 			break;
 	case 'players': handle_player($method, $request,$input);
             break;
-    case 'draw': if(sizeof($request)==0) {draw_card();}
+    case 'turn_change': if(sizeof($request)==0) {header("HTTP/1.1 404 Not Found");}
                         else if (sizeof($request)==1){handle_turn($method, $request);}
                         else {header("HTTP/1.1 404 Not Found");}
                         break;

@@ -17,52 +17,15 @@ function show_board(){
 }
 
 function reset_board() {
+
 	global $mysqli;
+
 	$sql = 'CALL clean_board()';
 	$mysqli->query($sql);
 }
 
-/*
-function draw_card() {
-	global $mysqli;
-
-
-	$sql = 'SELECT * FROM remaining_deck ORDER BY RAND() LIMIT 1';
-	$st = $mysqli->prepare($sql);
-	$st->execute();
-	$res = $st->get_result();
-	$r = $res->fetch_all(MYSQLI_ASSOC);
-	$card = $r[0]['card_id'];
-
-	$status = read_status();
-	if($status['p_turn']=='p1') {
-	$sql2 = "INSERT INTO hand (player_name, card_id) VALUES ('p1', ?)";
-	$st2 = $mysqli->prepare($sql2);
-    $st2->bind_param('i',$card);
-	$st2->execute();
-	$sql3 = "DELETE FROM remaining_deck where card_id=?";
-	$st3 = $mysqli->prepare($sql3);
-    $st3->bind_param('i',$card);
-	$st3->execute();
-	}else if($status['p_turn']=='p2') {
-	$sql2 = "INSERT INTO hand (player_name, card_id) VALUES ('p2', ?)";
-	$st2 = $mysqli->prepare($sql2);
-    $st2->bind_param('i',$card);
-	$st2->execute();
-	$sql3 = "DELETE FROM remaining_deck where card_id=?";
-	$st3 = $mysqli->prepare($sql3);
-    $st3->bind_param('i',$card);
-	$st3->execute();
-	}
-
-	header('Content-type: application/json');
-	print json_encode($r, JSON_PRETTY_PRINT);
-
-
-}
-*/
-
 function draw_card_p1() {
+
 	global $mysqli;
 
 	$sql = 'SELECT * FROM remaining_deck ORDER BY RAND() LIMIT 1';
@@ -76,6 +39,7 @@ function draw_card_p1() {
 	$st2 = $mysqli->prepare($sql2);
     $st2->bind_param('i',$card);
 	$st2->execute();
+
 	$sql3 = "DELETE FROM remaining_deck where card_id=?";
 	$st3 = $mysqli->prepare($sql3);
     $st3->bind_param('i',$card);
@@ -87,6 +51,7 @@ function draw_card_p1() {
 }
 
 function draw_card_p2() {
+
 	global $mysqli;
 
 	$sql = 'SELECT * FROM remaining_deck ORDER BY RAND() LIMIT 1';
@@ -100,6 +65,7 @@ function draw_card_p2() {
 	$st2 = $mysqli->prepare($sql2);
     $st2->bind_param('i',$card);
 	$st2->execute();
+
 	$sql3 = "DELETE FROM remaining_deck where card_id=?";
 	$st3 = $mysqli->prepare($sql3);
     $st3->bind_param('i',$card);
@@ -121,27 +87,27 @@ function reset_game(){
 	reset_board();
 
 	for ($x = 0; $x < 7; $x++) {
-	$sql2 = 'SELECT * FROM deck ORDER BY RAND() LIMIT 1';
-	$st2 = $mysqli->prepare($sql2);
-	$st2->execute();
-	$res2 = $st2->get_result();
-	$r2 = $res2->fetch_all(MYSQLI_ASSOC);
-	$card = $r2[0]['card_id'];
+		$sql2 = 'SELECT * FROM deck ORDER BY RAND() LIMIT 1';
+		$st2 = $mysqli->prepare($sql2);
+		$st2->execute();
+		$res2 = $st2->get_result();
+		$r2 = $res2->fetch_all(MYSQLI_ASSOC);
+		$card = $r2[0]['card_id'];
 
-	$sql3 = "INSERT INTO hand (player_name, card_id) VALUES ('p1', ?)";
-	$st3 = $mysqli->prepare($sql3);
-    $st3->bind_param('i',$card);
-	$st3->execute();
+		$sql3 = "INSERT INTO hand (player_name, card_id) VALUES ('p1', ?)";
+		$st3 = $mysqli->prepare($sql3);
+    	$st3->bind_param('i',$card);
+		$st3->execute();
 
-	$sql = "DELETE FROM deck where card_id=?";
-	$st = $mysqli->prepare($sql);
-    $st->bind_param('i',$card);
-	$st->execute();
+		$sql = "DELETE FROM deck where card_id=?";
+		$st = $mysqli->prepare($sql);
+    	$st->bind_param('i',$card);
+		$st->execute();
 
-	$sql4 = "DELETE FROM remaining_deck where card_id=?";
-	$st4 = $mysqli->prepare($sql4);
-    $st4->bind_param('i',$card);
-	$st4->execute();
+		$sql4 = "DELETE FROM remaining_deck where card_id=?";
+		$st4 = $mysqli->prepare($sql4);
+    	$st4->bind_param('i',$card);
+		$st4->execute();
 	}
 
 	for ($y = 0; $y < 7; $y++) {

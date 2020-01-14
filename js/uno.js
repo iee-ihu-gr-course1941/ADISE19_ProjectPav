@@ -129,7 +129,7 @@ function reset_board() {
 
 function update_hand(color,card){
 
-    console.log("card = " + card + " card color = " + color);
+   // console.log("card = " + card + " card color = " + color);
 
     $.ajax({url: "uno.php/do_move/"+color+'/'+card+'/'+game_status.p_turn, 
     method: 'PUT',
@@ -148,11 +148,11 @@ function winner(){
 
 
     if($("#player1-container").find(".p1cardclass").length == 0) {
-        $('#game_info2').html('Player 1 is winner!!! <br> Player 2 is a noob!!!');
+        $('#game_info2').html('Player 1 is winner!!! <br><br> Player 2 is a noob!!!');
 
 
     } else if($("#player2-container").find(".p2cardclass").length == 0) {
-        $('#game_info').html('Player 2 is winner!!! <br> Player 1 is a noob!!!');
+        $('#game_info').html('Player 2 is winner!!! <br><br> Player 1 is a noob!!!');
 
     }
 
@@ -160,7 +160,7 @@ function winner(){
 
 function success_move(){
 
-    console.log("Move has been succesfully updated in database");
+    console.log("Move has been succesfully updated in the database");
 
 }
 
@@ -218,7 +218,7 @@ function putCard(card,color,id){
         count = 0;
         update_hand(colordb,card);
 
-    }else if (card != 'R' || card != 'S' || card !='+2' || card != 'W' || card != '+4W') {
+    }else if (card != 'R' && card != 'S' && card !='+2' && card != 'W' && card != '+4W') {
 
         $('#tableCard-container').html('<div id=tableCard style="background-color: ' + color  +'">' + card +'</div>');
         $('#'+id).remove();
@@ -587,12 +587,12 @@ function update_status(data) {
          me={token:null,player_name:null};
          me1={token:null,player_name:null};
          me2={token:null,player_name:null};
-      //   $('#pass_btn').hide();
 
     }else if(game_status.status == 'started'){
 
         $('#game_initializer').hide();
     }
+    
 	update_info();
     clearTimeout(timer);
 
@@ -702,7 +702,7 @@ function update_turn(){
             game_status.p_turn = 'p1';
         }
       
-    $.ajax({url: "uno.php/draw/"+game_status.p_turn, 
+    $.ajax({url: "uno.php/turn_change/"+game_status.p_turn, 
 			method: 'PUT',
 			dataType: "json",
 			contentType: 'application/json',
