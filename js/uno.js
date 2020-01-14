@@ -12,6 +12,8 @@ var colordb = null;
 
 $(function () {
 
+    count=0;
+    count1=0;
     check_if_players();
     $('#uno_login').click(login_to_game);
     $('#game_reset').click(reset_board);
@@ -109,20 +111,18 @@ function reset_board() {
     last_update=new Date().getTime();
     timer=null;
 
-    game_status_update();
-    update_info();
+    count = 0;
+    count1 = 0;
 
 	$.ajax({url: "uno.php/reset/", 
     method: 'POST',
     dataType: "json",
     contentType: 'application/json',
     success: fill_game_by_data});
-    count = 0;
-    count1 = 0;
 
     game_status_update();
     update_info();
-
+    
     $('#game_initializer').show(1100);
 }
 
@@ -137,7 +137,7 @@ function update_hand(color,card){
     contentType: 'application/json',
     success: success_move});
 
-    if(card != 'W' && card != '+4W' && card != '+2' && card != 'R' && card != 'S'){
+    if(card != 'W' || card != '+4W' || card != '+2' || card != 'R' || card != 'S'){
         pass();
     }
 
@@ -176,6 +176,8 @@ function  playCard(e){
 
     console.log(game_status.p_turn + " " + count + " " + cardcolor + " " + tablecardcolor + " " + card + " " + tablecard);
 
+    game_status_update();
+
     if (cardcolor == "rgb(0, 0, 0)" && count == 0) {
 
         putBlackCard(card,cardcolor,divid);
@@ -185,7 +187,7 @@ function  playCard(e){
         winner();
 
     }else if ((cardcolor == tablecardcolor || card == tablecard) && (card != 'W') && (card != '+4W') && count == 0) {
-
+        
         putCard(card,cardcolor,divid);
         update_info();
         winner();    
@@ -205,8 +207,6 @@ function putCard(card,color,id){
         $('#'+id).remove(); 
 
         update_hand(colordb,card);
-        count1 = 0;
-        count = 0;
 
     }else if (card == '+2'){
 
@@ -214,8 +214,6 @@ function putCard(card,color,id){
         $('#'+id).remove();
 
         draw_enemy_two();
-        count1 = 0;
-        count = 0;
         update_hand(colordb,card);
 
     }else if (card != 'R' || card != 'S' || card !='+2' || card != 'W' || card != '+4W') {
@@ -702,7 +700,7 @@ function update_turn(){
             game_status.p_turn = 'p1';
         }
       
-    $.ajax({url: "uno.php/turn_change/"+game_status.p_turn, 
+    $.ajax({url: "uno.php/draw/"+game_status.p_turn, 
 			method: 'PUT',
 			dataType: "json",
 			contentType: 'application/json',
