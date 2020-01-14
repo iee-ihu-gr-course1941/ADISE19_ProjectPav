@@ -130,9 +130,6 @@ function update_move($b,$c,$d){
 	$res = $st->get_result();
 	$r = $res->fetch_all(MYSQLI_ASSOC);
 	$card_id = $r[0]['card_id'];
-	
-	header('Content-type: application/json');
-	print json_encode($card_id, JSON_PRETTY_PRINT);
 
 	$sql2 = 'UPDATE play_card SET card_id=?, card_text=? where play_card_id=1';
 	$st2 = $mysqli->prepare($sql2);
