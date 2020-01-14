@@ -246,10 +246,10 @@ PUT /do_move/:color:/:card:/:p/
 
 ___
 
-# Συντελεστές:
+## Συντελεστές:
 
-### Προγραμματιστής: dpavlidis
-### Τεχνολογίες :  HTML, jQuery, MySQL, PHP API.
+#### Προγραμματιστής: dpavlidis
+#### Τεχνολογίες :  HTML, jQuery, MySQL, PHP API.
 
 ___
 
