@@ -13,7 +13,6 @@ var colordb = null;
 $(function () {
 
     check_if_players();
-    $('#move_div').hide();
     $('#uno_login').click(login_to_game);
     $('#game_reset').click(reset_board);
     $('#deckcard').click (draw_func);
@@ -150,12 +149,10 @@ function winner(){
 
     if($("#player1-container").find(".p1cardclass").length == 0) {
         $('#game_info2').html('Player 1 is winner!!! <br> Player 2 is a noob!!!');
-        fireMultiple(20, 150, 150);
 
 
     } else if($("#player2-container").find(".p2cardclass").length == 0) {
         $('#game_info').html('Player 2 is winner!!! <br> Player 1 is a noob!!!');
-        fireMultiple(20, 150, 150);
 
     }
 
@@ -557,12 +554,12 @@ function update_info(){
 
     if(game_status.p_turn == 'p1'){
         player = 'Player 1';
-        $('#game_info').html("I am Player: <strong>"+game_status.p_turn+"</strong>, my name is <strong>"+me1.username +'</strong><strong><br><br>Game state: <strong>'+game_status.status+'</strong>,   <strong>'+ player+'</strong> must play now.  <strong><-----</strong>');
+        $('#game_info').html("I am Player: <strong>"+game_status.p_turn+"</strong>, my name is <strong>"+me1.username +"<br><br></strong>Game state: <strong>"+game_status.status+"</strong>,<strong>"+ player+"</strong> must play now.");
     }else if(game_status.p_turn == 'p2'){
         player = 'Player 2';
-        $('#game_info').html("I am Player: <strong>"+game_status.p_turn+"</strong>, my name is <strong>"+me2.username +'</strong><strong><br><br>Game state: <strong>'+game_status.status+'</strong>,   <strong>'+ player+'</strong> must play now.  <strong><-----</strong>');
+        $('#game_info').html("I am Player: <strong>"+game_status.p_turn+"</strong>, my name is <strong>"+me2.username +"</strong><br><br>Game state: <strong>"+game_status.status+"</strong>,<strong>"+ player+"</strong> must play now.");
     }else if(game_status.p_turn == null){
-        $('#game_info').html("I am Player: <strong>Not Entered</strong>, my name is <strong>Not Entered</strong><strong><br><br>Game state: <strong>"+game_status.status+"</strong>, Null must play now.  <strong><-----</strong>'");
+        $('#game_info').html("I am Player: <strong>Not Entered</strong>, my name is <strong>Not Entered</strong><br><br> Game state: <strong>"+game_status.status+"</strong>, Null must play now.");
     }
 	
 }
@@ -590,7 +587,7 @@ function update_status(data) {
          me={token:null,player_name:null};
          me1={token:null,player_name:null};
          me2={token:null,player_name:null};
-         $('#pass_btn').hide();
+      //   $('#pass_btn').hide();
 
     }else if(game_status.status == 'started'){
 

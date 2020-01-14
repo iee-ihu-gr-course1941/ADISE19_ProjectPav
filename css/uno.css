@@ -35,10 +35,10 @@ body {
     height: 175px;
     width : 125px;
     position: absolute;
-    right: 0;
-    top: 260px;
+    top: 250px;
     border: 1px solid black;
-    margin-right: 550px;
+    right: 26%;
+   /* margin-right: 550px; */
 }
 
 #tableCard-container {
@@ -112,8 +112,8 @@ body {
 
 #pass_btn {
     position: absolute;
-    bottom: 600px;
-    left : 555px;
+    top: 320px;
+    left : 27%;
     box-shadow:inset 0px 0px 15px 3px #23395e;
 	background:linear-gradient(to bottom, #2e466e 5%, #415989 100%);
 	background-color:#2e466e;
@@ -160,24 +160,30 @@ div.image {
 .image:hover {
     background-color: #ff1414;
    
-  }
+}
 
 #game_info {
-position: absolute;
+position: relative;
 left:25%;
-width: 50%;   
-bottom: 16%;
+width: 50%; 
+text-align: left;
+float:left;
+margin-top: 1%; 
+
+
 }
 
 #game_info2 {
-position: absolute;
+position: relative;
 left:25%;
-width: 50%;   
-bottom: 9%;
+width: 50%; 
+text-align: left;
+margin-top: 7%; 
+
 }
 
 input[type=text], select {
-
+    position: relative;
     padding: 10px 15px;
     margin: 10px 2px;
     display: inline-block;
@@ -202,47 +208,49 @@ input[type=text], select {
 
 #game_initializer {
     position: relative;
+    float: left;
+    /*
     margin-top: 12px;
     margin-left: 8px;
+    */
 }
 
 #game_reset {
-    left: 46%;
     position: absolute;
-    bottom: 5%;
+    margin-left: 45.5%;
 }
 
 #rules_div{
     position: absolute;
     margin: 0;
-    width: 20%;
-    top : 5%;
+    width: 18%;
+    top : 4%;
     left : 15px;
 }
 
 #rule_title{
     position: absolute;
     top : 1px;
-    left : 150px;
+    left : 7%;
 }
 
 #game-informations{
     position: absolute;
     margin: 0;
-    width: 21%;
+    width: 20%;
     top : 5%;
     right: 15px;
 }
 
 #game_title{
     position: absolute;
-    top : 10px;
-    right : 90px;
+    top : 1px;
+    right : 3%;
 }
 
 #p1tag { 
     color: rgb(252, 7, 7);
-    font-size: xx-large;
+    font-size: x-large;
     font-family: Georgia, serif;
     letter-spacing: 2px;
     word-spacing: 2px;
