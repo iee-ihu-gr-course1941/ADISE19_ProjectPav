@@ -50,7 +50,7 @@ ___
 
 | Attribute     | Description   | Values|
 | ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| card_id       | Το μοναδικό id της κάρτας | 0,1,2,3,etc |
+| card_color    | Το χρώμα της κάρτας      |  R,G,Y,B,W |
+| card_text     | Το νούμερο/αρηθμός της κάρτας | 0,1,R,S,W,etc |
 
