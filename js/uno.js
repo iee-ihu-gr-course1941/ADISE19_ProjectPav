@@ -218,7 +218,7 @@ function putCard(card,color,id){
         count = 0;
         update_hand(colordb,card);
 
-    }else if (card != 'R' && card != 'S' && card !='+2' && card != 'W' && card != '+4W') {
+    }else if (card != 'R' || card != 'S' || card !='+2' || card != 'W' || card != '+4W') {
 
         $('#tableCard-container').html('<div id=tableCard style="background-color: ' + color  +'">' + card +'</div>');
         $('#'+id).remove();
