@@ -103,8 +103,6 @@ function reset_board() {
     $('#tableCard-container').html("");
     $('#game_info2').html("");
 
-    count = 0;
-    count1 = 0;
     me={token:null,player_name:null};
     me1={token:null,player_name:null};
     me2={token:null,player_name:null};
@@ -119,11 +117,13 @@ function reset_board() {
     dataType: "json",
     contentType: 'application/json',
     success: fill_game_by_data});
+    count = 0;
+    count1 = 0;
 
     game_status_update();
     update_info();
 
-	$('#game_initializer').show(1100);
+    $('#game_initializer').show(1100);
 }
 
 
