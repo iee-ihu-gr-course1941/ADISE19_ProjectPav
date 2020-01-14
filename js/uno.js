@@ -137,7 +137,7 @@ function update_hand(color,card){
     contentType: 'application/json',
     success: success_move});
 
-    if(card != 'W' || card != '+4W' || card != '+2' || card != 'R' || card != 'S'){
+    if(card != 'W' && card != '+4W' && card != '+2' && card != 'R' && card != 'S'){
         pass();
     }
 
@@ -186,8 +186,8 @@ function  playCard(e){
         update_info();
         winner();
 
-    }else if ((cardcolor == tablecardcolor || card == tablecard) && (card != 'W') && (card != '+4W') && count == 0) {
-        
+    }else if ((cardcolor == tablecardcolor || card == tablecard) && (card != 'W' && card != '+4W' && count == 0)) {
+
         putCard(card,cardcolor,divid);
         update_info();
         winner();    
@@ -216,7 +216,7 @@ function putCard(card,color,id){
         draw_enemy_two();
         update_hand(colordb,card);
 
-    }else if (card != 'R' || card != 'S' || card !='+2' || card != 'W' || card != '+4W') {
+    }else if (card != 'R' && card != 'S' && card !='+2' && card != 'W' && card != '+4W') {
 
         $('#tableCard-container').html('<div id=tableCard style="background-color: ' + color  +'">' + card +'</div>');
         $('#'+id).remove();

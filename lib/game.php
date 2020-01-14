@@ -127,7 +127,6 @@ function update_move($b,$c,$d){
 
 	global $mysqli;
 
-	
 	$status = read_status();
 
 	$sql = 'select card_id from hand where card_id = (select h.card_id from hand h inner join deck_reset d on h.card_id = d.card_id where d.card_color=? and d.card_text = ? and h.player_name = ? order by d.card_text desc limit 1)';
