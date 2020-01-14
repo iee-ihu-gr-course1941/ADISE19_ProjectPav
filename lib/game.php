@@ -138,7 +138,7 @@ function update_move($b,$c,$d){
 	
 	sleep(0.2);
 
-	$sql3 = 'delete from hand where card_id=? desc limit 1)';
+	$sql3 = 'delete from hand where card_id=? desc limit 1';
 	$st3 = $mysqli->prepare($sql3);
 	$st3->bind_param('i',$card_id);
 	$st3->execute();
