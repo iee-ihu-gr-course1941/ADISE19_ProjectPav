@@ -22,6 +22,10 @@ function reset_board() {
 
 	$sql = 'CALL clean_board()';
 	$mysqli->query($sql);
+
+	$sql2 = 'DELETE FROM players';
+	$st2 = $mysqli->prepare($sql2);
+	$st2->execute();
 }
 
 function draw_card_p1() {
